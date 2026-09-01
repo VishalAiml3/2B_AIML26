@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<body>
+  <form id="myForm">
+    <h2>Register</h2>
+    <input type="text" id="name" placeholder="Name" required><br><br>
+    <input type="text" id="mobile" placeholder="Mobile Number" required><br><br>
+    <input type="email" id="email" placeholder="Email" required><br><br>
+    <input type="password" id="password" placeholder="Password" required><br><br>
+    <input type="password" id="repassword" placeholder="Re-enter Password" required><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(event){
+      event.preventDefault(); // stop auto submit
+
+      let name = document.getElementById("name").value.trim();
+      let mobile = document.getElementById("mobile").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value;
+      let repassword = document.getElementById("repassword").value;
+
+      if(!name || !mobile || !email || !password || !repassword){
+        alert("⚠️ Please fill all fields!");
+        return;
+      }
+
+      if(password !== repassword){
+        alert("❌ Passwords do not match!");
+        return;
+      }
+
+      alert("✅ Form submitted successfully!");
+    });
+  </script>
+</body>
+</html>
